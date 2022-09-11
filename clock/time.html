@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  <link rel="stylesheet" href="other.css">
+</head>
+<body>
+<div id="clock"></div>
+<script>
+  // function showTime(clock) {
+  //   let now = new Date();
+  //
+  //   let year = now.getFullYear();
+  //   let month = now.getMonth() + 1;
+  //   let date = now.getDate();
+  //   let day = now.getDay();
+  //
+  //   let hour = now.getHours();
+  //   let min = now.getMinutes();
+  //   let sec = now.getSeconds();
+  //
+  //   let arrWeek = new array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
+  //   let week = arrWeek[day];
+  //   let time = year + " " + month + " " + date + " " + day + " " + hour + ":" + min + ":" + sec;
+  //   Clock.innerHTML = time + ':' + week;
+  // }
+
+
+  setInterval(function () {
+          function zero(value) {
+              if (value < 10) {
+                  value = '0' + value;
+              }
+              return value;
+          }
+
+          function showTime() {
+              let date = new Date();
+              // let day = zero(currentDatetime.getDate());
+              // let month = zero(currentDatetime.getMonth()+1);
+              // let year = currentDatetime.getFullYear();
+              let hours = zero(date.getHours());
+              let minutes = zero(date.getMinutes());
+              let seconds = zero(date.getSeconds());
+
+              return hours + ":" + minutes + ":" + seconds;
+              // let options = {month: 'long', day: 'numeric', weekday: 'long',hour: 'numeric',minute: 'numeric', second:'numeric'};
+              // let time = date.toLocaleDateString('en-US', options);
+              // console.log(time);
+          }
+
+          function showDate() {
+              let options = {month: 'long', day: 'numeric', weekday: 'long'};
+              let currentDate = date.toLocaleDateString('en-US', options);
+          }
+
+          document.getElementById('clock').innerText = showTime();
+          document.getElementById('clock').innerText = showDate();
+      },
+      1000);
+</script>
+</body>
+</html>
